@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () => {
+  
+  const pokemon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
+  const inputRef = useRef()
+
+  return (<>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      margin: 20,
+      gap: 10
+    }} >
+
+      <input ref={inputRef} type="text" />
+      <button onClick={() => {
+        alert(inputRef.current.value)
+      }
+      }> Pesquisar </button>
+
     </div>
+    <div
+      style={{
+        height: 96,
+        width: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundImage: `url(${pokemon})`
+      }}
+    >
+    </div>
+  </>
   );
 }
 
