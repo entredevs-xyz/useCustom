@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { usePokemon } from "./usePokemon";
 
 
 const App = () => {
   
-  const pokemon = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
+
+  const { pokemon, procurarPokemon } = usePokemon()
   const inputRef = useRef()
 
   return (<>
@@ -16,7 +18,7 @@ const App = () => {
 
       <input ref={inputRef} type="text" />
       <button onClick={() => {
-        alert(inputRef.current.value)
+        procurarPokemon(inputRef.current.value)
       }
       }> Pesquisar </button>
 
